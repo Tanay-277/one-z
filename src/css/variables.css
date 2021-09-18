@@ -1,3 +1,17 @@
+/*global roots*/
 :root{
-    --home-background:#071170;
+    --box-shadow: 0 15px 35px rgb(0 0 0 / 50%);
+    --dark-text:rgb(0,80,255);
+    --placeholder-color:#6ac4e0;
+}
+
+/*sidebar styles roots*/
+:root{
+    --sidebar-width:62px;
+    --sidebar-background:#032da2;
+}
+
+/*home style roots*/
+:root{
+    --home-background:#060921;
 }

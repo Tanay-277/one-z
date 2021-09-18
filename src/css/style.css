@@ -17,7 +17,7 @@ body {
 
 /*Sidebar Styles*/
 .side {
-  width: 62px;
+  width: var(--sidebar-width);
 }
 .main {
   width: 95.5%;
@@ -27,12 +27,13 @@ body {
   top: 0;
   left: 0;
   height: 100%;
-  width: 62px;
-  background: darkcyan;
+  width: var(--sidebar-width);
+  background: var(--sidebar-background);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  box-shadow: var(--box-shadow);
 }
 .sidebar i {
   font-size: 2.5em;
@@ -71,11 +72,31 @@ body {
     align-items: center;
     justify-content: space-around;
     color: aliceblue;
-    font-size: 1.2em;
+    font-size:1.4em;
     padding: 10px 0;
     flex-wrap: wrap;
 }
 .home-nav>div {
     margin: 0 15px;
     padding: 2px 5px;
+}
+.search input{
+  outline: none;
+    border: none;
+    padding: 0 24px;
+    text-align: center;
+    background: #09143c;
+    font-family: 'lexend';
+    border-radius: 3px;
+    width: 260px;
+    height: 39px;
+    color:var(--placeholder-color);
+    transition: 0.3s;
+    
+}
+.search input:hover{
+  /* border: 3px solid #196365; */
+}
+.search input::placeholder{
+  color:var(--placeholder-color)
 }
