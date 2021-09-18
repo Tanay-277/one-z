@@ -1,6 +1,11 @@
 import React from "react";
 
 const Home = () => {
+  const clock = ()=>{
+    let date = new Date();
+    date = date.getTime()
+
+  }
   return (
     <>
       <div className="home">
