@@ -15,3 +15,8 @@
 :root{
     --home-background:#060921;
 }
+
+/*Loader style root*/
+:root{
+    --loader-back:#000000d1;
+}

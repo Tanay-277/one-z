@@ -34,52 +34,45 @@ const Home = () => {
     let hour = d.getHours();
     let min = d.getMinutes();
     let ampm = null;
-    let greet = document.querySelector('.greet')
+    let greet = document.querySelector(".greet");
+    let query = document.querySelector(".search");
+    let searchbtn = document.querySelector(".searchBtn");
 
     //adjusting some variables
-    if (hour < 10) {
-      hour = "0" + hour;
+
+    //searchbar functions
+
+    query.addEventListener("keyup", function (event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        searchbtn.click();
+      }
+    });
+    searchbtn.onclick = function () {
+      let url = "https://www.google.com/search?q=" + query.value;
+      window.open(url);
+    };
+
+    if (hour < 12) {
+      hour = '0' + hour
+      ampm = "am";
+      greet.innerHTML = "Good Morning";
+    } else if (hour === 12) {
+      ampm = "pm";
+      greet.innerHTML = "Good Afternoon";
+    } else if (hour > 12 && hour < 16) {
+      ampm = "pm";
+      greet.innerHTML = "Good Afternoon";
+    } else if (hour >= 16 && hour < 19) {
+      ampm = "pm";
+      greet.innerHTML = "Good Evening";
+    } else if (hour >= 19) {
+      ampm = "pm";
+      greet.innerHTML = "Good Night";
     }
-    if (min < 10) {
-      min = "0" + min;
+    if(min<12){
+      min = '0'+min;
     }
-    // if (hour < 12) {
-    //   ampm = "am";
-    // } else {
-    //   ampm = "pm";
-    // }
-    // if(hour > 0 && hour<12){
-    //   greet = 'Good Morning';
-    // }
-    // if(hour >= 12 && hour < 17){;
-    //   greet = 'Good Afternoon'
-    // }
-    // if(hour >= 17 && hour < 19){
-    //   greet = 'Good Evening';
-    // }
-    // if(hour >= 19 && hour < 0){
-    //   greet = 'Good Night';
-    // }
-    if(hour<12){
-      ampm = "am"
-      greet.innerHTML = "Good Morning"
-      } 
-      else if(hour === 12){
-      ampm = "pm"
-      greet.innerHTML = "Good Afternoon"
-      }
-      else if(hour > 12 && hour < 16){
-      ampm = "pm"
-      greet.innerHTML = "Good Afternoon"
-      }
-      else if(hour>=16 && hour<19){
-      ampm = "pm"
-      greet.innerHTML = "Good Evening"
-      }
-      else if(hour>=19){
-      ampm = "pm"
-      greet.innerHTML = "Good Night"
-      }
     //defining perfect variables
     let today = `${date}th ${month},${year}`;
     let time = `${hour}:${min} ${ampm}`;
@@ -92,6 +85,7 @@ const Home = () => {
   setInterval(() => {
     clock();
   }, 1000);
+
   return (
     <>
       <div className="home">
@@ -100,8 +94,13 @@ const Home = () => {
           <div className="time"></div>
           <div className="day"></div>
           <div className="date"></div>
-          <div className="search">
-            <input type="text" placeholder={"Search Google"}/>
+          <div className="query">
+            <input
+              type="text"
+              className="search"
+              placeholder={"Search Google"}
+            />
+            <i className="bi bi-search searchBtn"></i>
           </div>
         </div>
       </div>
