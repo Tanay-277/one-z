@@ -21,6 +21,7 @@ body {
 }
 .main {
   width: 95.5%;
+  transition: 0.3s ;
 }
 .sidebar {
   position: fixed;
@@ -31,17 +32,20 @@ body {
   background: var(--sidebar-background);
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
   box-shadow: var(--box-shadow);
+  align-items: flex-start;
+  padding-left: 0.7em;
+  transition: 0.3s ease-in-out;
 }
 .sidebar i {
   font-size: 2.5em;
   cursor: pointer;
-  transition: text-shadow 0.3s ease;
+  transition: 0.3s ease;
+  color:var(--sidebar-i-color)
 }
 .sidebar i:hover {
-  text-shadow: 2px 3px 4px #210612;
+  color: #4aabd0;
 }
 .sidebar .sidebar-top {
   display: flex;
@@ -55,6 +59,9 @@ body {
   justify-content: center;
   font-size: 0.9em;
 }
+.sidebar-bot .sidebar-item {
+  margin-top: 8px;
+}
 .sidebar-bot i {
   margin-top: 10px;
 }
@@ -62,24 +69,70 @@ body {
 .sidebar .sidebar-top .bi-list {
   font-size: 3em !important;
 }
-
+.sidebar-item{
+  position: relative;
+}
+.sidebar .tooltip{
+  position: absolute;
+  left: 0%;
+  text-align: center;
+  transform: translateY(-50%);
+  border-radius: 6px;
+  height: 35px;
+  width: 122px;
+  background: #0b0e3e;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
+  transition: 0s;
+  opacity: 0;
+  pointer-events: none;
+  color: deeppink;
+  font-weight: 500;
+  font-size: 1.2em;
+  border-left: 6px solid #060825;
+}
+.sidebar-item:hover .tooltip{
+  top: 50%;
+  transition: 0.5s ease;
+  left: 110%;
+  display: flex;
+  opacity: 1;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar.active{
+  width:270px;
+}
 /*Home Styles*/
 
 .home .home-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   color: aliceblue;
   font-size: 1.4em;
   padding: 10px 0;
-  flex-wrap: wrap;
+display: flex;
+align-items: center;
+justify-content: space-around;
+flex-wrap: wrap;
 }
 .home-nav > div {
   margin: 0 15px;
   padding: 2px 5px;
 }
+
+.greet {
+  grid-area: greet;
+}
+.time {
+  grid-area: time;
+}
+.day {
+  grid-area: day;
+}
+.date {
+  grid-area: date;
+}
 .query {
   position: relative;
+  grid-area: query;
 }
 input.search {
   outline: none;
@@ -207,3 +260,5 @@ input.search::placeholder {
     clip-path: polygon(0% 60%,16% 65%,34% 66%,51% 62%,67% 50%,84% 45%,100% 46%,100% 100%,0% 100%);
   }
 }
+
+
